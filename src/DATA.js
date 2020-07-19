@@ -6999,3 +6999,4 @@ export const Data = [{
         "image_url": "http://dummyimage.com/250x250.jpg/dddddd/000000"
     }
 ]
+.slice(980);

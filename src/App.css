@@ -10,6 +10,9 @@ body{
   text-align: center;
   padding: 7px;
   align-items: center;
+  position: sticky;
+  top:0;
+  z-index: 1;
 }
 .search-box{
   font-size: 20px;
@@ -20,7 +23,10 @@ body{
 .product-list{
   display: flex;
   flex-flow: row wrap;
+  flex: 0 0 60%;
   justify-content: center;
+  position: sticky;
+  top:50px;
 }
 .product {
   margin: 10px;
@@ -48,7 +54,39 @@ body{
   display: flex;
   flex: 0 0 25%;
   flex-flow: row wrap;
+  flex-direction: column;
   height: 100vh;
-  border: 1px solid grey;
+  border: .1px solid grey;
+  position: sticky;
+  top:50px;
   align-items: center;
+  /* justify-content: center; */
+}
+
+.cart-list .cart-items{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.cart-list .cart-item{
+  display: flex;
+  margin: 5px;
+  padding: 5px;
+  border: 1px dotted #f0e15f;
+
+}
+.cart-item button{
+  width: 30px;
+  margin: 5px;
+
+}
+.cart-item .info{
+  display: flex;
+  flex:auto;
+  justify-content: space-between;
+  padding: 5px;
+}
+.cart-item .info button{
+  width: 100px;
+  padding: 5px;
 }

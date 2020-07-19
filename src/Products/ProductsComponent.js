@@ -1,13 +1,12 @@
 import React from 'react';
 import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
+    Card, CardImg, CardBody,CardTitle, Button
   } from 'reactstrap';
 
-const Product = ({id,title,image_url,brand,price}) =>{
+const Product = ({id,title,image_url,brand,price,cartItem}) =>{
     return(
         <div>
-        <Card className="product">
+        <Card className="product" >
             <CardImg top width="100%" src={image_url} alt={title} />
             <CardBody>
             <CardTitle className="title">
@@ -16,7 +15,7 @@ const Product = ({id,title,image_url,brand,price}) =>{
             </CardTitle>
             <div className="actions">
             <span>Price: ${price}</span>
-            <Button>Add to Cart</Button>
+            <Button onClick={() => cartItem(id)}>Add to Cart</Button>
             </div>           
             </CardBody>
         </Card>
@@ -24,12 +23,12 @@ const Product = ({id,title,image_url,brand,price}) =>{
     )
 }
 
-const ProductList = ({products}) => {
+const ProductList = ({products,addCartItem}) => {
     return (
       <div>
-        <h3 className="text-center">All Products-{products.length}</h3>        
+        <h3 className="text-center text-danger">All Products-{products.length}</h3>        
         <div className="product-list">
-            {products.map(product => <Product {...product} />)}
+            {products.map(product => <Product {...product} key={product.id} cartItem={addCartItem}/>)}
         
         </div>
         
