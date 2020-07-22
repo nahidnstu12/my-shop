@@ -1,9 +1,12 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
+import ThemeContext from '../ThemeContex';
 
 const Cart = ({ cartItem, removeCartItem,clearCart }) => {
 
 	const [chekoutOpen,setcheckoutOpen] =  useState(false);
 	const [address,setAddress] = useState("");
+	const {dark} = useContext(ThemeContext)
+
 
 	const totalPrice = cartItem.reduce((acc, cur) =>
 		acc + cur.price * cur.quantity, 0
@@ -14,8 +17,15 @@ const Cart = ({ cartItem, removeCartItem,clearCart }) => {
 	const handleChange = (e) =>{
 		setAddress(e.target.value)
 	}
+	// clearCart ? setAddress(""): console.log("false")
+	const clearState = () => {
+		clearCart();
+		setAddress(""); 
+		setcheckoutOpen(false);
+	}
+		
 	return (
-		 <div className="cart-list">
+		 <div className={`cart-list ${dark ? "dark":""}`}>
 			<h4>Cart Items</h4>
 
 			{cartItem.length === 0 &&
@@ -34,7 +44,7 @@ const Cart = ({ cartItem, removeCartItem,clearCart }) => {
 
 			{cartItem.length > 0 && 
 			<>
-				<div className="cart-item mt-4">
+				<div className={`cart-item mt-4 ${dark ? "bottom-dark":"bottom-lite"}`} >
 					<div className="info ">
 						<span className="badge badge-warning p-3" style={{ fontSize: "120%", width: "30%", }}>Total</span>
 						<span className="badge badge-pill badge-secondary p-3" style={{ fontSize: "100%", width: "25%" }}>$ {totalPrice}</span>
@@ -43,20 +53,20 @@ const Cart = ({ cartItem, removeCartItem,clearCart }) => {
 				
 				<div className="cart-item">
 					<div className="info ">
-						<button className="btn btn-outline-danger" onClick={clearCart}>Clear All</button>
+						<button className="btn btn-outline-danger" onClick={clearState}>Clear All</button>
 						<button className="btn btn-outline-primary" onClick={toggleCKout} >{chekoutOpen ? "Hide": "Check Out"}</button>
 					</div>
 				</div>
 			</>
 			}
-			
+
 			</div>
 
 			{chekoutOpen && cartItem.length > 0 &&
 			<div className="cart-item" style={{width:"100%"}}>
 				<div className="info row" >
 					<input placeholder="Enter your address" onChange={handleChange} className="form-control col-7 ml-2"/>
-					<button className="btn btn-outline-primary col-3 mr-3" onClick={clearCart} disabled={!address}>Check Out</button>
+					<button className="btn btn-outline-primary col-3 mr-3" onClick={clearState} disabled={!address}>Check Out</button>
 				</div>
 			</div>}
 
@@ -65,8 +75,9 @@ const Cart = ({ cartItem, removeCartItem,clearCart }) => {
 }
 
 const ProductOnCart = ({ id, title, price, quantity, removeCartItem }) => {
+	const {dark} = useContext(ThemeContext)
 	return (
-		<div className="cart-item">
+		<div className={`cart-item mt-4 ${dark ? "bottom-dark":"bottom-lite"}`}>
 			<button className="btn btn-sm btn-outline-danger" onClick={() => removeCartItem(id)}>X</button>
 			<div className="info">
 				<span>{title} x {quantity}</span>

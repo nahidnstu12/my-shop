@@ -3,6 +3,10 @@ body{
   padding: 0;
   box-sizing: border-box;
 }
+.App.dark{
+  background: #000;
+  color: bisque;
+}
 
 .nav-bar{
   background: #000;
@@ -27,6 +31,10 @@ body{
   justify-content: center;
   position: sticky;
   top:50px;
+}
+.product-list.dark{
+  background: #000;
+  color: bisque;
 }
 .product {
   margin: 10px;
@@ -53,14 +61,18 @@ body{
 .cart-list{
   display: flex;
   flex: 0 0 25%;
-  flex-flow: row wrap;
+  /* flex-flow: row wrap; */
   flex-direction: column;
-  height: 100vh;
+  height: 200vh;
   border: .1px solid grey;
   position: sticky;
-  top:50px;
+  top:51px;
   align-items: center;
-  /* justify-content: center; */
+}
+
+.cart-list.dark{
+  background: #000;
+  color: bisque;
 }
 
 .cart-list .cart-items{
@@ -72,8 +84,14 @@ body{
   display: flex;
   margin: 5px;
   padding: 5px;
-  border: 1px dotted #f0e15f;
+  /* border-bottom: 1px dashed #f0e15f; */
 
+}
+.cart-list .bottom-dark{
+  border-bottom: 1px dashed #333;
+}
+.cart-list .bottom-lite{
+  border-bottom: 1px dashed #f0e15f;
 }
 .cart-item button{
   width: 30px;

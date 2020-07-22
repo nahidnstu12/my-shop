@@ -1,12 +1,14 @@
-import React from 'react';
+import React,{useContext} from 'react';
+import ThemeContext from '../ThemeContex';
 import {
     Card, CardImg, CardBody,CardTitle, Button
   } from 'reactstrap';
 
 const Product = ({id,title,image_url,brand,price,cartItem}) =>{
+	const {dark} = useContext(ThemeContext)
     return(
         <div>
-        <Card className="product" >
+        <Card className={`product ${dark ? "text-white bg-dark":""}` }>
             <CardImg top width="100%" src={image_url} alt={title} />
             <CardBody>
             <CardTitle className="title">
@@ -24,10 +26,12 @@ const Product = ({id,title,image_url,brand,price,cartItem}) =>{
 }
 
 const ProductList = ({products,addCartItem}) => {
+	const {dark} = useContext(ThemeContext)
+
     return (
       <div>
         <h3 className="text-center text-danger">All Products-{products.length}</h3>        
-        <div className="product-list">
+        <div className={`product-list ${dark ? "dark":""}`}>
             {products.map(product => <Product {...product} key={product.id} cartItem={addCartItem}/>)}
         
         </div>
