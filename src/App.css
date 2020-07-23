@@ -18,6 +18,18 @@ body{
   top:0;
   z-index: 1;
 }
+.nav-bar .links a{
+ color: white;
+ border: 1px solid #4caf50;
+ text-decoration: none;
+ padding: 5px;
+ margin: 2px;
+}
+.nav-bar .links a:hover{
+  color: #fff;
+  background-color: #4caf50;
+  font-weight: 600;
+}
 .search-box{
   font-size: 20px;
   outline: none;
