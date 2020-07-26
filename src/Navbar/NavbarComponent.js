@@ -1,11 +1,15 @@
 import React,{useContext} from 'react';
 import ThemeContext from '../ThemeContex';
 import {Link} from 'react-router-dom';
+import {store} from '../store';
 
-const Navbar = ({ setKeyword }) => {
+const Navbar = () => {
+	const {dispatch} = useContext(store);
+	
 	const handleChange = (e) => {
-		// alert(setKeyword(e.target.value));
-		setKeyword(e.target.value.toLowerCase());
+
+		dispatch({type:"SET_SEARCH",
+		payload:e.target.value.toLowerCase()});
 	}
 	const {dark,toggleMode} = useContext(ThemeContext);
 	return (

@@ -3,7 +3,7 @@ import {Card, CardImg, CardBody,CardTitle, Button} from 'reactstrap';
 import ThemeContext from '../ThemeContex';
 import {Link} from 'react-router-dom';
 
-const Product = ({id,title,image_url,brand,price,cartItem}) =>{
+const Product = ({id,title,image_url,brand,price,addCartItem}) =>{
 	const {dark} = useContext(ThemeContext)
     return(
         <div>
@@ -20,7 +20,7 @@ const Product = ({id,title,image_url,brand,price,cartItem}) =>{
         <CardBody>
             <div className="actions">
             <span>Price: ${price}</span>
-            <Button onClick={() => cartItem(id)}>Add to Cart</Button>
+            <Button onClick={() => addCartItem(id)}>Add to Cart</Button>
             </div>           
             </CardBody>
         </Card>

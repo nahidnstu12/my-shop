@@ -1,16 +1,30 @@
-import React,{useContext} from 'react';
+import React,{useContext,useEffect} from 'react';
 import ThemeContext from '../ThemeContex';
 import Product from './ListProduct';
+import useCarts from '../Carts/useCarts';
+import { Data } from '../DATA';
+import {store} from '../store';
 
-const ProductList = ({products,addCartItem}) => {
-	const {dark} = useContext(ThemeContext)
+
+const ProductList = () => {
+  const {dark} = useContext(ThemeContext);
+  const {state:{products,Keyword},dispatch} = useContext(store);
+  const {addCartItem} = useCarts();
+//   console.log("test"+ typeof products);
+    useEffect(() => {
+		const result = Data.filter(product => product.title.toLowerCase().includes(Keyword) || product.brand.toLowerCase().includes(Keyword));
+        dispatch({
+            type:"SET_PRODUCT",
+            payload:result
+        });
+	}, [dispatch,Keyword]);
+    
 
     return (
-      <div>
-        <h3 className="text-center text-danger">All Products-{products.length}</h3>        
-        <div className={`product-list ${dark ? "dark":""}`}>
-            {products.map(product => <Product {...product} key={product.id} cartItem={addCartItem}/>)}
-        </div>
+      <div className={`product-list ${dark ? "dark":""}`}>
+       
+            {products.map(product => <Product {...product} key={product.id} addCartItem={addCartItem}/>)}
+        
       </div>
     )
   }

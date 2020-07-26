@@ -1,23 +1,21 @@
 import React,{useState,useContext} from 'react';
 import ThemeContext from '../ThemeContex';
+import useCarts from './useCarts';
 
-const Cart = ({ cartItem, removeCartItem,clearCart }) => {
+const Cart = () => {
 
 	const [chekoutOpen,setcheckoutOpen] =  useState(false);
 	const [address,setAddress] = useState("");
-	const {dark} = useContext(ThemeContext)
+	const {dark} = useContext(ThemeContext);
+	const {cartItems,removeCartItem,clearCart,totalPrice} = useCarts();
 
-
-	const totalPrice = cartItem.reduce((acc, cur) =>
-		acc + cur.price * cur.quantity, 0
-	)
 	const toggleCKout = () => {
 		setcheckoutOpen(status =>!status)
 	}
 	const handleChange = (e) =>{
 		setAddress(e.target.value)
 	}
-	// clearCart ? setAddress(""): console.log("false")
+
 	const clearState = () => {
 		clearCart();
 		setAddress(""); 
@@ -28,7 +26,7 @@ const Cart = ({ cartItem, removeCartItem,clearCart }) => {
 		 <div className={`cart-list ${dark ? "dark":""}`}>
 			<h4>Cart Items</h4>
 
-			{cartItem.length === 0 &&
+			{cartItems.length === 0 &&
 			<div className="cart-item">
 				<div className="info">
 					<h2>Cart is empty</h2>
@@ -37,12 +35,12 @@ const Cart = ({ cartItem, removeCartItem,clearCart }) => {
 			
 			<div className="cart-items">
 
-			{cartItem.length >0 && 
-				cartItem.map((item) => 
+			{cartItems.length >0 && 
+				cartItems.map((item) => 
 				(<ProductOnCart {...item} key={item.id} removeCartItem={removeCartItem} />))
 			}
 
-			{cartItem.length > 0 && 
+			{cartItems.length > 0 && 
 			<>
 				<div className={`cart-item mt-4 ${dark ? "bottom-dark":"bottom-lite"}`} >
 					<div className="info ">
@@ -62,7 +60,7 @@ const Cart = ({ cartItem, removeCartItem,clearCart }) => {
 
 			</div>
 
-			{chekoutOpen && cartItem.length > 0 &&
+			{chekoutOpen && cartItems.length > 0 &&
 			<div className="cart-item" style={{width:"100%"}}>
 				<div className="info row" >
 					<input placeholder="Enter your address" onChange={handleChange} className="form-control col-7 ml-2"/>
