@@ -1,12 +1,15 @@
-import {useContext} from 'react';
-import {store} from '../store';
+import {useSelector,useDispatch} from 'react-redux';
+import {setCartItems} from '../redux/actionCreators';
 
 // Custom hooks
 const useCarts = () => {
 	
-	const {state:{cartItems,products},dispatch} = useContext(store);
+	// const {state:{cartItems,products},dispatch} = useContext(store);
+	const {cartItems,products} = useSelector(state => state);
+	const dispatch = useDispatch();
+
 	const setCartItem = (items) =>{
-		dispatch({type:"SET_CART_ITEMS",payload:items})
+		dispatch(setCartItems(items))
 	}
 	const addCartItem = (id) => {
 		const item = products.find(product => product.id === id);

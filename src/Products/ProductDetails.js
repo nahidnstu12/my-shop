@@ -9,7 +9,7 @@ const ProductDetails = () =>{
     const {productId} = useParams();
     const product = Data.find(p => p.id=== parseInt(productId));
     const {addCartItem} = useCarts();
-    console.log(product);
+    // console.log(product);
     return(
         <div className="product-details">
             <h3>Product Code- {productId}</h3>

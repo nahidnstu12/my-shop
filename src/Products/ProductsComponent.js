@@ -1,22 +1,22 @@
 import React,{useContext,useEffect} from 'react';
 import ThemeContext from '../ThemeContex';
+import {useSelector,useDispatch} from 'react-redux';
 import Product from './ListProduct';
 import useCarts from '../Carts/useCarts';
 import { Data } from '../DATA';
-import {store} from '../store';
-
+import {setProducts} from '../redux/actionCreators';
 
 const ProductList = () => {
   const {dark} = useContext(ThemeContext);
-  const {state:{products,Keyword},dispatch} = useContext(store);
+  const {products,Keyword} = useSelector(state => state);
+  const dispatch = useDispatch();
   const {addCartItem} = useCarts();
-//   console.log("test"+ typeof products);
-    useEffect(() => {
+
+//   console.log(products.length)
+  useEffect(() => {
 		const result = Data.filter(product => product.title.toLowerCase().includes(Keyword) || product.brand.toLowerCase().includes(Keyword));
-        dispatch({
-            type:"SET_PRODUCT",
-            payload:result
-        });
+      dispatch(setProducts(result))
+        
 	}, [dispatch,Keyword]);
     
 

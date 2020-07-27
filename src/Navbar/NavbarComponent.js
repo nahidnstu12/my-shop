@@ -1,15 +1,15 @@
 import React,{useContext} from 'react';
+import {useDispatch} from 'react-redux';
 import ThemeContext from '../ThemeContex';
 import {Link} from 'react-router-dom';
-import {store} from '../store';
+import {setKeyword} from '../redux/actionCreators';
 
 const Navbar = () => {
-	const {dispatch} = useContext(store);
+	const dispatch = useDispatch();
 	
 	const handleChange = (e) => {
 
-		dispatch({type:"SET_SEARCH",
-		payload:e.target.value.toLowerCase()});
+		dispatch(setKeyword(e.target.value.toLowerCase()));
 	}
 	const {dark,toggleMode} = useContext(ThemeContext);
 	return (
