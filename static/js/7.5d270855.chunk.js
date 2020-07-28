@@ -1,0 +1,2 @@
+(this["webpackJsonpmy-shop"]=this["webpackJsonpmy-shop"]||[]).push([[7],{52:function(e,t,a){"use strict";a.r(t);var n=a(0),r=a.n(n),c=a(50),s=a(2),d=a(49),u=a(47);t.default=function(){var e=Object(s.g)().productId,t=d.a.find((function(t){return t.id===parseInt(e)})),a=Object(u.a)().addCartItem;return r.a.createElement("div",{className:"product-details"},r.a.createElement("h3",null,"Product Code- ",e),r.a.createElement(c.a,Object.assign({},t,{addCartItem:a,key:e})))}}}]);
+//# sourceMappingURL=7.5d270855.chunk.js.map
