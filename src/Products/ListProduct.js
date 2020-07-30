@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 const Product = ({id,title,image_url,brand,price,addCartItem}) =>{
 	const {dark} = useContext(ThemeContext)
     return(
-        <div>
+        
         <Card className={`product ${dark ? "text-white bg-dark":""}` }>
         <Link to={`/product/${id}`}>
             <CardImg top width="100%" src={image_url} alt={title} />
@@ -24,7 +24,7 @@ const Product = ({id,title,image_url,brand,price,addCartItem}) =>{
             </div>           
             </CardBody>
         </Card>
-    </div>
+    
     )
 }
 

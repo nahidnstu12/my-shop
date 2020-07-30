@@ -4,6 +4,7 @@ import './App.css';
 import Navbar from './Navbar/NavbarComponent';
 import ThemeContext from './ThemeContex';
 import {StateProvider} from './redux/Store';
+import Category from './Products/Categories';
 
 const App = () => {
 	const [dark,setDark] = useState(false);
@@ -28,6 +29,7 @@ const App = () => {
 				<Route path="/checkout" component={Checkout } />            
 				<Route path="/product/:productId" component={ProductDetails }/> 
 				<Route path="/home" component={Home} />
+				<Route path="/category" component={Category} />
 				<Redirect to='/home'/>          
             </Switch>
 			<Cart /> 

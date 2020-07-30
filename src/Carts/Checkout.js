@@ -17,7 +17,7 @@ const Checkout = () =>{
     return(
         
         <div className="checkout">
-            <h3>Check out-{totalPrice}</h3>
+            <h3>Check out = ${totalPrice}</h3>
             {totalPrice > 0 ? (
             <div className="cart-item" style={{width:"100%"}}>
 				<div className="info row" >
