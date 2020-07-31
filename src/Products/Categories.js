@@ -1,12 +1,12 @@
 import React,{useState} from 'react';
-import {useSelector,useDispatch} from 'react-redux';
+// import {useSelector} from 'react-redux';
 import { Badge, Button } from 'reactstrap';
 import {Data} from '../DATA';
 import Product from './ListProduct';
 import useCarts from '../Carts/useCarts';
 
 const Category = () =>{
-    const {products} = useSelector(state => state);
+    // const {products} = useSelector(state => state);
     const {addCartItem} = useCarts();
    
     const brandNameArray = Data.map(product => product.brand);
@@ -54,7 +54,7 @@ const CategoryBtn = ({brandName,quantity}) => {
     return(
         
         <div className="col-sm-2 col-6 m-2">
-            <Button color="info" outline style={{fontWeight:"600"}} onClick={()=>toggleCategory()}>
+            <Button color="info" outline style={{fontWeight:"600"}} onClick={()=>toggleCategory()} show={show ? 1 : 0}>
                 {brandName} <Badge color="success">{quantity}</Badge>
             </Button>
         </div>
