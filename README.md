@@ -1,5 +1,5 @@
 This is **My  Shop - React** using reactjs.This is totally for learning purpose.
-Demo - [enter My shop Demo](https://nahidnstu12.github.io/my-store/)
+Demo - [enter My shop Demo](https://y-shop.netlify.app/home)
 ## Features
 - Product Listing
 - single product show

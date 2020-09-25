@@ -36,7 +36,11 @@
   outline: none;
   border-radius: 12px;
 }
-
+.pag{
+  display: flex;
+  flex:0 0 70%;
+  flex-direction: column;
+}
 .product-list{
   display: flex;
   flex-flow: row wrap;
@@ -52,12 +56,12 @@
 }
 .product {
   margin: 10px;
-  width: 270px;
+  width: 180px;
 }
 .product .title,.actions{
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 13px;
 }
 .product .actions{
   border-top: 1px solid grey;
@@ -65,13 +69,18 @@
   align-items: baseline;
 }
 .product .actions button{
-  height: 40px;
+  height: 35px;
   color: white;
   font-weight: 500;
   background: #4caf50;
   margin-top: 8px;
   justify-content: space-between;
   align-items: center;
+  font-size: 13px;
+}
+.card-body{
+  padding: 10px 1px 4px 1px !important;
+  min-height: 80px !important;
 }
 .product-details {
   display: flex;

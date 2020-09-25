@@ -9,18 +9,18 @@ const Product = ({id,title,image_url,brand,price,addCartItem}) =>{
         
         <Card className={`product ${dark ? "text-white bg-dark":""}` }>
         <Link to={`/product/${id}`}>
-            <CardImg top width="100%" src={image_url} alt={title} />
+            <CardImg top width="180px" src={image_url} alt={title} />
             <CardBody>
             <CardTitle className="title">
                 <span>{title}</span>
-                <span>*{brand}*</span>
+                <span style={{ marginLeft:"15px"}}>*{brand}*</span>
             </CardTitle>
             </CardBody>
         </Link>
         <CardBody>
             <div className="actions">
             <span>Price: ${price}</span>
-            <Button onClick={() => addCartItem(id)}>Add to Cart</Button>
+            <Button onClick={() => addCartItem(id)}>Add Cart</Button>
             </div>           
             </CardBody>
         </Card>

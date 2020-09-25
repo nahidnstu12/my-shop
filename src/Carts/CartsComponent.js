@@ -21,11 +21,10 @@ const Cart = () => {
 		setAddress(""); 
 		setcheckoutOpen(false);
 	}
-		
 	return (
 		 <div className={`cart-list ${dark ? "dark":""}`}>
 			<h4>Cart Items</h4>
-
+			{/* cart is empty */}
 			{cartItems.length === 0 &&
 			<div className="cart-item">
 				<div className="info">
@@ -34,12 +33,12 @@ const Cart = () => {
 			</div>}
 			
 			<div className="cart-items">
-
+				{/* Products on carts */}
 			{cartItems.length >0 && 
 				cartItems.map((item) => 
 				(<ProductOnCart {...item} key={item.id} removeCartItem={removeCartItem} />))
 			}
-
+			{/* total_price section */}
 			{cartItems.length > 0 && 
 			<>
 				<div className={`cart-item mt-4 ${dark ? "bottom-dark":"bottom-lite"}`} >
@@ -59,7 +58,7 @@ const Cart = () => {
 			}
 
 			</div>
-
+			{/* ckout form */}
 			{chekoutOpen && cartItems.length > 0 &&
 			<div className="cart-item" style={{width:"100%"}}>
 				<div className="info row" >

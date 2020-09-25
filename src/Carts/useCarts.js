@@ -3,8 +3,7 @@ import {setCartItems} from '../redux/actionCreators';
 
 // Custom hooks
 const useCarts = () => {
-	
-	// const {state:{cartItems,products},dispatch} = useContext(store);
+
 	const {cartItems,products} = useSelector(state => state);
 	const dispatch = useDispatch();
 

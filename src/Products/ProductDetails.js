@@ -5,13 +5,11 @@ import useCarts from '../Carts/useCarts';
 import {useSelector} from 'react-redux';
 
 const ProductDetails = () =>{
-
     const {productId} = useParams();
     const {products} = useSelector(state => state);
     const product = products.find(p => p.id=== (productId));
     const {addCartItem} = useCarts();
     const {description} = product
-    console.log(description);
     return(
         <div className="product-details">
             <h3>Product Code- {productId}</h3>

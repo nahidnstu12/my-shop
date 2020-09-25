@@ -13,7 +13,8 @@ const Checkout = () =>{
 		clearCart();
 		setAddress(""); 
 		//setcheckoutOpen(false);
-	}
+    }
+
     return(
         
         <div className="checkout">
