@@ -47,7 +47,7 @@ const CategoryBtn = ({brandName,quantity,handlelist}) => {
 
     return(
         <>
-        <div className="col-sm-2 col-6 m-2">
+        <div className="col-sm-4 col-md-3 m-2">
             <Button color="info" outline style={{fontWeight:"600"}} onClick={()=>toggleCategory()} show={show ? 1 : 0} handlelist={handlelist}>
                 {brandName} <Badge color="success">{quantity}</Badge>
             </Button>
